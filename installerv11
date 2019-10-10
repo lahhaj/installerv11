@@ -1,86 +1,159 @@
-     ==========================
-   
+|   _   _| | ___ __ ___   __ _ _ __
+| |  | | | | |/ / '_ ` _ \ / _` | '_ \
+| |__| |_| |   <| | | | | | (_| | | | |
+|_____\__,_|_|\_\_| |_| |_|\__,_|_| |_|
 
-     Nama=LUKMAN
-     WA =088806900907
-    ===========================
-<?xml version="1.0" encoding="utf-8" ?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" android:installLocation="internalOnly" android:sharedUserId="com.termux" android:sharedUserLabel="@string/shared_user_label" android:versionCode="75" android:versionName="0.75" package="com.termux" platformBuildVersionCode="28" platformBuildVersionName="9">
-	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
-	<uses-feature android:name="android.hardware.touchscreen" android:required="false" />
-	<uses-feature android:name="android.software.leanback" android:required="false" />
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.WAKE_LOCK" />
-	<uses-permission android:name="android.permission.VIBRATE" />
-	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-	<uses-permission-sdk-23 android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
-	<application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:banner="@drawable/banner" android:extractNativeLibs="false" android:fullBackupContent="@xml/backupscheme" android:icon="@drawable/ic_launcher" android:isSplitRequired="true" android:label="@string/application_name" android:supportsRtl="false" android:theme="@style/Theme.Termux">
-		<meta-data android:name="android.max_aspect" android:value="10.0" />
-		<activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="@string/application_name" android:launchMode="singleTask" android:name="com.termux.app.TermuxActivity" android:resizeableActivity="true" android:windowSoftInputMode="stateAlwaysVisible|adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LEANBACK_LAUNCHER" />
-			</intent-filter>
-			<meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
-		</activity>
-		<activity-alias android:name="com.termux.HomeActivity" android:targetActivity="com.termux.app.TermuxActivity">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.IOT_LAUNCHER" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</activity-alias>
-		<activity android:exported="false" android:label="@string/application_name" android:name="com.termux.app.TermuxHelpActivity" android:parentActivityName="com.termux.app.TermuxActivity" android:resizeableActivity="true" android:theme="@android:style/Theme.Material.Light.DarkActionBar" />
-		<activity android:excludeFromRecents="true" android:label="@string/application_name" android:name="com.termux.filepicker.TermuxFileReceiverActivity" android:noHistory="true" android:resizeableActivity="true" android:taskAffinity="com.termux.filereceiver">
-			<intent-filter>
-				<action android:name="android.intent.action.SEND" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<data android:mimeType="application/*" />
-				<data android:mimeType="audio/*" />
-				<data android:mimeType="image/*" />
-				<data android:mimeType="message/*" />
-				<data android:mimeType="multipart/*" />
-				<data android:mimeType="text/*" />
-				<data android:mimeType="video/*" />
-			</intent-filter>
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<data android:mimeType="text/*" />
-				<data android:mimeType="application/json" />
-				<data android:mimeType="application/*xml*" />
-				<data android:mimeType="application/*latex*" />
-				<data android:mimeType="application/javascript" />
-			</intent-filter>
-		</activity>
-		<provider android:authorities="com.termux.documents" android:exported="true" android:grantUriPermissions="true" android:name="com.termux.filepicker.TermuxDocumentsProvider" android:permission="android.permission.MANAGE_DOCUMENTS">
-			<intent-filter>
-				<action android:name="android.content.action.DOCUMENTS_PROVIDER" />
-			</intent-filter>
-		</provider>
-		<service android:exported="false" android:name="com.termux.app.TermuxService" />
-		<receiver android:name="com.termux.app.TermuxOpenReceiver" />
-		<provider android:authorities="com.termux.files" android:exported="true" android:grantUriPermissions="true" android:name="com.termux.app.TermuxOpenReceiver$ContentProvider" android:readPermission="android.permission.permRead" />
-		<meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
-		<meta-data android:name="com.android.vending.splits.required" android:value="true" />
-		<meta-data android:name="com.android.vending.splits" android:value="@xml/splits0" />
-		<meta-data android:name="com.android.vending.derived.apk.id" android:value="2" />
-	</application>
-</manifest>
-grantUriPermissions="true" android:name="com.termux.filepicker.TermuxDocumentsProvider" android:permission="android.permission.MANAGE_DOCUMENTS">
-			<intent-filter>
-				<action android:name="android.content.action.DOCUMENTS_PROVIDER" />
-			</intent-filter>
-		</provider>
-		<service android:exported="false" android:name="com.termux.app.TermuxService" />
-		<receiver android:name="com.termux.app.TermuxOpenReceiver" />
-		<provider android:authorities="com.termux.files" android:exported="true" android:grantUriPermissions="true" android:name="com.termux.app.TermuxOpenReceiver$ContentProvider" android:readPermission="android.permission.permRead" />
-		<meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
-		<meta-data android:name="com.android.vending.splits.required" android:value="true" />
-		<meta-data android:name="com.android.vending.splits" android:value="Lukman heck" />
-		<meta-data android:name="com.android.veding.splits" android : value=" lukman" />
+ _   _ _____ ____ _  _______ ____  ____
+| | | | ____/ ___| |/ / ____|  _ \/ ___|
+| |_| |  _|| |   | ' /|  _| | |_) \___ \
+|  _  | |__| |___| . \| |___|  _ < ___) |
+|_| |_|_____\____|_|\_\_____|_| \_\____/
+
+╔══════════════════════╗
+║╔════════════════════╗╚╗
+║║██░░░░░░░░░░░░░░░░░░╚╗╚╗
+║║██░░░░░Battery Low ░░░░░ ─║║║
+║║██░░░░░░░░░░░░░░░░░░╔╝╔╝
+║╚════════════════════╝╔╝
+╚══════════════════════╝
+#!/bin/bash
+#Program Calculator
+
+
+   penambahan(){
+
+   echo " Masukkan angka pertama : "
+
+   read p
+
+   echo " Masukkan angka kedua : "
+
+   read q
+
+   Tambah=$(echo "$p + $q" | bc)
+
+   echo "Hasil penambahan angka = $Tambah"
+
+   sleep 5
+
+   }
+
+
+
+   pengurangan(){
+
+   echo " Masukkan angka pertama : "
+
+   read p
+
+   echo " Masukkan angka kedua : "
+
+   read q
+
+   Kurang=$(echo "$p - $q" | bc)
+
+   echo "Hasil pengurangan angka = $Kurang"
+
+   sleep 5
+
+   }
+
+
+
+   perkalian(){
+
+   echo " Masukkan angka pertama : "
+
+   read p
+
+   echo " Masukkan angka kedua : "
+
+   read q
+
+   Kali=$(echo "$p * $q" | bc)
+
+   echo "Hasil perkalian angka = $Kali"
+
+   sleep 5
+
+   }    
+
+   pembagian(){
+
+   echo " Masukkan angka pertama : "
+
+   read p
+
+   echo " Masukkan angka kedua : "
+
+   read q
+
+   Bagi=$(echo "$p /$q" | bc)
+
+   echo "Hasil pembagian angka = $Bagi"
+
+   sleep 5
+
+   }
+
+
+
+   MENU=1
+
+
+
+   while [ $MENU ]
+
+   do
+
+   clear
+
+   echo "    PROGRAM KALKULATOR     "
+
+   echo "------------------------------------------"
+
+   echo "1 . Penambahan"
+
+   echo "2 . Pengurangan"
+
+   echo "3 . Perkalian"
+
+   echo "4 . Pembagian"
+
+   echo "5 . Exit"
+
+   echo "Pilihan Menu : "
+
+   read MENU
+
+   case $MENU in
+
+   1) penambahan
+
+   ;;
+
+   2) pengurangan
+
+   ;;
+
+   3) perkalian
+
+   ;;
+
+   4) pembagian
+
+   ;;
+
+   5) echo "Terima Kasih :)"
+
+   exit
+
+   ;;
+
+   *) echo "Kamu Salah Memasukkan Pilihan"
+
+   sleep 3
+
+   esac
+
+   done
